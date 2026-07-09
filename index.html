@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()" :class="{'dark':dark}" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rakib — WordPress Developer & SEO Specialist. Building high-performance, user-friendly websites with clean code and seamless functionality. Fast, scalable, and results-driven.">
+<meta name="keywords" content="freelance developer, web designer, portfolio, wordpress developer,">
+<meta name="author" content="Rakib">
+<meta property="og:title" content="Rakib — Freelance WordPress Developer">
+<meta property="og:description" content="I design and build digital products that people love to use.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wa.me/8801616355160">
+<title>Rakib Hussain — WordPress Developer</title>
+
+<!-- Favicon added below -->
+<link rel="icon" type="image/png" href="images/image1.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<meta name="google-site-verification" content="GdIqxfZ8MkDkUoA58Tdi40A0AXokPszl-X1sLI2lwsk" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4VW9RM49N2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4VW9RM49N2');
+</script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { display: ['PT Sans','sans-serif'], body: ['DM Sans','sans-serif'] },
+      colors: { accent: '#FF6B2B', 'accent-light': '#FF8F5C' }
+    }
+  }
+}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{font-family:'DM Sans',sans-serif}
+h1,h2,h3,h4,h5,h6{font-family:'PT Sans',sans-serif}
+body{transition:background-color .3s,color .3s}
+
+/* noise overlay */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#FF6B2B;border-radius:99px}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* nav underline animation */
+.nl{position:relative}
+.nl::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:currentColor;transition:width .22s cubic-bezier(.4,0,.2,1)}
+.nl:hover::after,.nl.on::after{width:100%}
+.nl.on{font-weight:500}
+
+/* shimmer button */
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,.18);transform:skewX(-20deg);transition:left .4s cubic-bezier(.4,0,.2,1)}
+.shimmer:hover::after{left:160%}
+
+/* photo frames */
+.pf{overflow:hidden;background:#d4d4d8}
+.pf img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* card hover */
+.card-h{transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .18s}
+.card-h:hover{transform:translateY(-4px)}
+
+/* skill tag */
+.stag{transition:border-color .18s}
+
+[x-cloak]{display:none!important}
+</style>
+</head>
+<body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased">
+
+<!-- ═══ NAV Rakib Nam═══ -->
+<header class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  :class="sc?'bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md shadow-sm shadow-black/5':''">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between" aria-label="Main navigation">
+
+    <a href="" class="font-display font-bold text-xl tracking-tight relative z-10">
+  <span class="text-black dark:text-white">Ra</span><span class="text-accent">Kib </span><span class="text-black dark:text-white">D</span><span class="text-accent">ev</span>
+</a>
+
+    <ul class="hidden md:flex items-center gap-8 text-sm" role="list">
+      <li><a href="#pricing" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='services'?'on !text-zinc-900 dark:!text-white':''">Pricing</a></li>
+      <li><a href="#work"     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='work'?'on !text-zinc-900 dark:!text-white':''">Work</a></li>
+      <li><a href="#about"   class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='about'?'on !text-zinc-900 dark:!text-white':''">About</a></li>
+      <li><a href="#reviews" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='reviews'?'on !text-zinc-900 dark:!text-white':''">Reviews</a></li>
+      <li>
+  <a href="https://themedokan.com/" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" 
+     :class="s==='blog'?'on !text-zinc-900 dark:!text-white':''">
+     Shop
+  </a>
+</li>
+      <li><a href="#contact" class="nl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors" :class="s==='contact'?'on !text-zinc-900 dark:!text-white':''">Contact</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <!-- dark toggle -->
+      <button @click="dark=!dark" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" :aria-label="dark?'Light mode':'Dark mode'">
+        <svg x-show="!dark" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg x-show="dark"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+      </button>
+      <!-- hire me -->
+      <a href="https://wa.me/8801616355160" class="hidden md:inline-flex items-center gap-2 shimmer bg-accent text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-accent-light transition-colors">
+        Hire me <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <!-- hamburger -->
+      <button @click="mm=!mm" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800" :aria-expanded="mm" aria-label="Toggle menu">
+        <svg x-show="!mm" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg x-show="mm"  class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile menu -->
+  <div x-show="mm" x-cloak
+    x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+    class="md:hidden bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900">
+    <ul class="flex flex-col px-6 py-5 gap-4 text-sm font-medium" role="list">
+      <li><a href="#pricing" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Pricing</a></li>
+      <li><a href="#work"     @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Work</a></li>
+      <li><a href="#about"   @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">About</a></li>
+      <li><a href="#reviews" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Reviews</a></li>
+      <li>
+  <a href="https://themedokan.com/" target="_blank" rel="noopener noreferrer" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">
+    Shop
+  </a>
+</li>
+      <li><a href="#contact" @click="mm=false" class="block text-zinc-700 dark:text-zinc-300 hover:text-accent transition-colors">Contact</a></li>
+      <li class="pt-2 border-t border-zinc-100 dark:border-zinc-900">
+        <a href="https://wa.me/8801616355160" @click="mm=false" class="inline-flex shimmer bg-accent text-white font-medium text-sm px-5 py-2.5 rounded-full">Hire me →</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" class="relative min-h-screen flex items-center pt-8 overflow-hidden">
+  <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-1/4 left-0 w-64 h-64 bg-zinc-200/50 dark:bg-zinc-800/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Reduced py-24 to py-12 to pull content upward -->
+  <div class="relative z-10 max-w-6xl mx-auto px-6 py-12 w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="reveal text-sm font-medium text-accent tracking-widest uppercase mb-4">Available for work</p>
+        <h1 class="reveal d1 font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-zinc-900 dark:text-white mb-6">
+          Hi, I'm <span class="text-accent">Rakib</span>
+        </h1>
+        <p class="reveal d2 text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-md mb-10">
+          Freelance <strong class="font-medium text-zinc-700 dark:text-zinc-300">WordPress &amp; Web Developer</strong>. I design and build digital products that people love to use — fast, clean, and accessible.
+        </p>
+        <div class="reveal d3 flex flex-wrap gap-4">
+          <a href="#work" class="shimmer inline-flex items-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-colors text-sm">
+            View my work
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-medium px-7 py-3.5 rounded-full hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors text-sm">Get in touch</a>
+        </div>
+        <div class="reveal d4 flex gap-8 mt-14 pt-8 border-t border-zinc-100 dark:border-zinc-900">
+          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">137+</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Projects done</p></div>
+          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">87+</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Happy clients</p></div>
+          <div><p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">4y</p><p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Experience</p></div>
+        </div>
+      </div>
+
+      <div class="reveal d2 flex justify-center md:justify-end">
+        <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+          <div class="pf w-full h-full rounded-3xl">
+            <img src="images/image1.png" alt="Rakib Hussain—WordPress Web Developer" loading="eager">
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-accent text-white font-display font-bold text-sm px-4 py-2.5 rounded-2xl shadow-lg">Open to projects</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="work" class="py-24 bg-zinc-50 dark:bg-zinc-950 transition-colors">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14">
+      <p class="text-xs font-medium text-orange-500 tracking-widest uppercase mb-3">What I do</p>
+      <h2 class="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Services</h2>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- WordPress Developer -->
+      <article class="group relative p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-500 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_-5px_rgba(33,117,155,0.4)] hover:border-[#21759B]/50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#21759B]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative w-12 h-12 flex items-center justify-center bg-[#21759B]/10 rounded-xl mb-6">
+            <img src="images/icons/wordpress1.png" alt="WordPress" class="w-8 h-8">
+        </div>
+        <h3 class="relative font-bold text-xl text-zinc-900 dark:text-white mb-3">WordPress Developer</h3>
+        <p class="relative text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">I specialize in custom WordPress development, complex bug fixes, and ongoing website maintenance. I create premium, SEO-friendly, fast, and high-performance websites tailored to your business goals.
+</p>
+      </article>
+
+      <!-- Elementor Design -->
+      <article class="group relative p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-500 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_-5px_rgba(146,0,59,0.4)] hover:border-[#92003B]/50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#92003B]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative w-12 h-12 flex items-center justify-center bg-[#92003B]/10 rounded-xl mb-6">
+            <img src="images/icons/elementor2.png" alt="Elementor" class="w-8 h-8">
+        </div>
+        <h3 class="relative font-bold text-xl text-zinc-900 dark:text-white mb-3">Elementor Design</h3>
+        <p class="relative text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">I design pixel-perfect, modern, and visually stunning websites using Elementor Pro and custom CSS. Every website is crafted to reflect your brand identity while delivering a premium user experience across all devices.
+</p>
+      </article>
+
+      <!-- Server Side Tracking -->
+      <article class="group relative p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-500 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_-5px_rgba(249,115,22,0.4)] hover:border-orange-500/50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative w-12 h-12 flex items-center justify-center bg-orange-500/10 rounded-xl mb-6">
+            <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="relative font-bold text-xl text-zinc-900 dark:text-white mb-3">Server Side Tracking</h3>
+        <p class="relative text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">I provide modern Server-Side Tracking solutions for accurate data collection in today's privacy-focused world. Using GTM Server Container and Conversion API (CAPI), I ensure reliable tracking and improved data accuracy.
+</p>
+      </article>
+
+      <!-- SEO -->
+      <article class="group relative p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 transition-all duration-500 shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.4)] hover:border-emerald-500/50 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div class="relative w-12 h-12 flex items-center justify-center bg-emerald-500/10 rounded-xl mb-6">
+            <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <h3 class="relative font-bold text-xl text-zinc-900 dark:text-white mb-3">SEO Expert</h3>
+        <p class="relative text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">I specialize in On-Page and Technical SEO to improve your website’s search engine rankings. From meta data optimization to strategic keyword implementation, I help increase your organic traffic and online visibility.
+</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="reviews" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14">
+      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Social proof</p>
+      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">What clients say</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <blockquote class="reveal d1 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
+        <div class="flex gap-0.5 mb-5" aria-label="5 stars">
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6 italic">"Rakib delivered our redesign in record time and the quality blew us away. Our conversion rate jumped 29% in the first month. Absolutely recommend."</p>
+        <footer class="flex items-center gap-3">
+          <div class="pf w-10 h-10 rounded-full shrink-0"><img src="images/clients/anandamart.png?img=11" alt="Anandamart .com" loading="lazy"></div>
+          <div>
+            <p class="font-medium text-sm text-zinc-900 dark:text-white">AnandaMart.com</p>
+            <p class="text-xs text-zinc-500">Owner</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal d2 bg-zinc-900 dark:bg-zinc-800 rounded-2xl p-7 border border-zinc-800">
+        <div class="flex gap-0.5 mb-5" aria-label="5 stars">
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed mb-6 italic">"Working with Rakib is a dream. He asks the right questions, moves fast, and the final result always exceeds what we imagined. Our best hire of 2026."</p>
+        <footer class="flex items-center gap-3">
+          <div class="pf w-10 h-10 rounded-full shrink-0"><img src="images/clients/kolponashop.png" alt="Kolpona shop" loading="lazy"></div>
+          <div>
+            <p class="font-medium text-sm text-white">KolponaShop.com</p>
+            <p class="text-xs text-zinc-500">Founder,</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <blockquote class="reveal d3 bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-7 border border-zinc-100 dark:border-zinc-800">
+        <div class="flex gap-0.5 mb-5" aria-label="5 stars">
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg class="w-4 h-4 text-accent fill-current" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6 italic">""Rakib is a lifesaver. He turned our vague brief into a professional, high-performance site in just two weeks. Clean code and zero supervision needed!""</p>
+        <footer class="flex items-center gap-3">
+          <div class="pf w-10 h-10 rounded-full shrink-0"><img src="images/clients/texmediabd.png" alt="texmediabd" loading="lazy"></div>
+          <div>
+            <p class="font-medium text-sm text-zinc-900 dark:text-white">TexMediabd.com</p>
+            <p class="text-xs text-zinc-500">Creative Director, Orea</p>
+          </div>
+        </footer>
+      </blockquote>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ PORTFOLIO START ═══ -->
+<section id="portfolio" class="py-24 bg-zinc-50 dark:bg-zinc-900/40">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+      <div>
+        <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Work</p>
+        <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Selected Projects</h2>
+      </div>
+      <a href="https://themedokan.com/product-category/laravel-e-commerce/" target="_blank" rel="noopener noreferrer" class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">View more →</a>
+    </div>
+
+    <!-- Responsive Grid: 2 columns on mobile, 4 columns on large screens -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+
+      <!-- 1. POS Software -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/pos-software-source-code/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/software/pos.png" alt="POS Software" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">POS Software</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 2. Payment Gateway -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/auto-payment-gateway-script/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/software/gateway.png" alt="Payment Gateway" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Payment Gateway</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 3. Panjabi E-commerce -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/panjabi-shop-ready-ecommerce-website/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/panjabi.png" alt="Panjabi E-commerce" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Panjabi E-commerce</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 4. Organic E-commerce -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/musfifood-organic-food-ready-ecommerce/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/organic.png" alt="Organic E-commerce" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Organic E-commerce</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 5. Cartflows Landing Page -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/19-in-1-high-converting-cartflows-landing-page/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/landing-page.png" alt="Cartflows Landing Page" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Cartflows Landing Page</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 6. Bizli Mart -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/bizli-mart-laravel-ecommerce-source-code/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/laravel/bizlimart.webp" alt="Bizli Mart" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Bizli Mart Laravel</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 7. Darza -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/darza-laravel-e-commerce-source-code/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/laravel/darza.jpeg" alt="Darza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Darza Laravel</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- 8. Ajker Bazar -->
+      <div class="reveal group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-100 dark:border-zinc-800 hover:border-accent transition-all">
+        <a href="https://themedokan.com/product/ajker-bazar-e-commerce-laravel-soruce-code/" target="_blank" rel="noopener noreferrer" class="block">
+          <div class="w-full h-48 md:h-64 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden">
+            <img src="images/website_img/laravel/ajkerbazar.png" alt="Ajker Bazar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-xs md:text-lg text-zinc-900 dark:text-white mb-1 group-hover:text-accent transition-colors">Ajker Bazar Laravel</h3>
+            <span class="text-[11px] md:text-sm font-medium text-zinc-500">View details →</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ PORTFOLIO END ═══ -->
+
+<!-- ═══ LIVE PREVIEW SECTION ═══ -->
+<section id="live-preview" class="py-24 bg-white dark:bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14 text-center">
+      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Live Preview</p>
+      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Explore ThemeDokan</h2>
+    </div>
+
+    <!-- Browser Frame Wrapper -->
+    <div class="reveal d2 relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-zinc-100 dark:bg-zinc-900">
+      <!-- Browser Header/Dots -->
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
+        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+        <div class="ml-4 text-xs text-zinc-400 font-mono">themedokan.com</div>
+      </div>
+      
+      <!-- Scrolling Iframe Container -->
+      <div class="w-full h-[600px] overflow-y-auto">
+        <iframe 
+          src="https://themedokan.com/" 
+          class="w-full h-[1500px] border-0" 
+          title="ThemeDokan Preview"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    
+    <div class="mt-8 text-center">
+      <a href="https://themedokan.com/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full font-medium hover:opacity-80 transition-opacity">
+        Visit Website →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT SECTION START ═══ -->
+<section id="about" class="py-24 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-500">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      
+      <!-- Image Part with Hover Effect -->
+      <div class="reveal group">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+          <img src="images/image1.png" alt="Rakib Hussain" class="w-full h-auto object-cover aspect-[4/5]">
+          <!-- Overlay -->
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+            <p class="text-white font-bold text-2xl">4+ Years</p>
+            <p class="text-zinc-300">Professional Experience</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Part -->
+      <div>
+        <p class="text-sm font-bold text-accent tracking-[0.2em] uppercase mb-4">About Me</p>
+        <h2 class="font-display font-extrabold text-5xl text-zinc-900 dark:text-white mb-6 leading-tight">
+            Hi, I'm <span class="text-accent">Rakib</span>
+        </h2>
+        <p class="text-lg text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed">
+          Freelance <strong>WordPress & Web Developer</strong>. I design and build digital products that people love to use — fast, clean, and accessible.
+        </p>
+        
+        <!-- Feature Cards -->
+        <div class="space-y-6">
+          
+          <!-- WordPress Card -->
+          <div class="flex gap-5 p-4 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800">
+            <div class="w-1.5 h-auto bg-accent rounded-full shrink-0"></div>
+            <div>
+              <h4 class="font-bold text-lg text-zinc-900 dark:text-white mb-1">WordPress Developer</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">কাস্টম ওয়ার্ডপ্রেস সাইট তৈরি এবং জটিল সব বাগ ফিক্সিং ও রক্ষণাবেক্ষণে আমি দীর্ঘদিনের অভিজ্ঞ।</p>
+            </div>
+          </div>
+
+          <!-- Elementor Card -->
+          <div class="flex gap-5 p-4 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800">
+            <div class="w-1.5 h-auto bg-accent rounded-full shrink-0"></div>
+            <div>
+              <h4 class="font-bold text-lg text-zinc-900 dark:text-white mb-1">Elementor Design</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">Elementor প্রো ব্যবহার করে পিক্সেল-পারফেক্ট এবং নান্দনিক ডিজাইন নিশ্চিত করি।</p>
+            </div>
+          </div>
+
+          <!-- Tracking Card -->
+          <div class="flex gap-5 p-4 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800">
+            <div class="w-1.5 h-auto bg-accent rounded-full shrink-0"></div>
+            <div>
+              <h4 class="font-bold text-lg text-zinc-900 dark:text-white mb-1">Server Side Tracking</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">আধুনিক Server-Side Tracking ও CAPI-এর মাধ্যমে নির্ভুল ডেটা ট্র্যাকিং সলিউশন প্রদান করি।</p>
+            </div>
+          </div>
+          
+          <!-- SEO Card -->
+          <div class="flex gap-5 p-4 rounded-2xl hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-all duration-300 border border-transparent hover:border-zinc-200 dark:hover:border-zinc-800">
+            <div class="w-1.5 h-auto bg-accent rounded-full shrink-0"></div>
+            <div>
+              <h4 class="font-bold text-lg text-zinc-900 dark:text-white mb-1">SEO Expert</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">অন-পেজ এবং টেকনিক্যাল এসইও-এর মাধ্যমে আপনার সাইটকে সার্চ ইঞ্জিনে র‍্যাঙ্ক করাতে সাহায্য করি।</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══ ABOUT SECTION END ═══ -->
+<!-- ═══ START: LIVE PREVIEW SECTION ═══ -->
+<!-- হেডার মেনু থেকে লিঙ্কিং কাজ করার জন্য id="pricing" সেট করা হয়েছে -->
+<section id="pricing" class="py-24 bg-white dark:bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14 text-center">
+      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Live Preview</p>
+      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Explore Our Pricing</h2>
+    </div>
+
+    <!-- Browser Frame Wrapper -->
+    <div class="reveal d2 relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-zinc-100 dark:bg-zinc-900">
+      <!-- Browser Header/Dots -->
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
+        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+        <div class="ml-4 text-xs text-zinc-400 font-mono">https://themedokan.com/website-build-package/</div>
+      </div>
+      
+      <!-- Scrolling Iframe Container -->
+      <div class="w-full h-[600px] overflow-y-auto">
+        <iframe 
+          src="https://themedokan.com/website-build-package/" 
+          class="w-full h-[1500px] border-0" 
+          title="ThemeDokan Preview"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    
+    <div class="mt-8 text-center">
+      <a href="https://themedokan.com/website-build-package/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full font-medium hover:opacity-80 transition-opacity">
+        Visit Website →
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ═══ END: LIVE PREVIEW SECTION ═══ -->
+
+<!-- ═══ LIVE PREVIEW SECTION ═══ -->
+<section id="live-preview" class="py-24 bg-white dark:bg-zinc-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-14 text-center">
+      <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Live Preview</p>
+      <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">Watch Tutorial</h2>
+    </div>
+
+    <!-- Browser Frame Wrapper -->
+    <div class="reveal d2 relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-2xl bg-zinc-100 dark:bg-zinc-900">
+      <!-- Browser Header/Dots -->
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50">
+        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+        <div class="ml-4 text-xs text-zinc-400 font-mono">youtube.com/watch?v=rLs5klGUc48</div>
+      </div>
+      
+      <!-- Video Embed Container -->
+      <div class="w-full aspect-video">
+        <iframe 
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/rLs5klGUc48" 
+          title="WordPress Auto Payment Gateway | Deshi Pay Full Setup Tutorial"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+    
+    <div class="mt-8 text-center">
+      <a href="https://youtu.be/rLs5klGUc48" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-full font-medium hover:opacity-80 transition-opacity">
+        Watch on YouTube →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT SECTION (উপরে তোলা হয়েছে) ═══ -->
+<section id="contact" class="pt-10 pb-24"> <!-- এখানে py-24 এর পরিবর্তে pt-10 pb-24 দিয়েছি -->
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="bg-zinc-900 dark:bg-zinc-800 rounded-3xl p-10 md:p-16 relative overflow-hidden">
+      <!-- বাকি সব কোড আগের মতোই আছে -->
+      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative z-10 grid md:grid-cols-2 gap-12 items-start">
+        <!-- সোশ্যাল মিডিয়া সেকশন -->
+        <div>
+          <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Get in touch</p>
+          <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-white leading-tight mb-5">Let's work<br>together</h2>
+          <p class="reveal d2 text-zinc-400 leading-relaxed mb-8">I'm available for WordPress projects — landing pages, business websites, eCommerce stores, redesigns, or quick fixes. Short-term or long-term, let's discuss your project.</p>
+
+          <div class="reveal d3 flex flex-col gap-4">
+            <a href="mailto:rakibdev5160@gmail.com" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </span>
+              <span class="text-sm">rakibdev5160@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rakib-hussain-011916335" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </span>
+              <span class="text-sm">linkedin.com/in/rakib-hussain-011916335</span>
+            </a>
+            <a href="https://youtube.com/@skillupwithrakib" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </span>
+              <span class="text-sm">youtube.com/@skillupwithrakib</span>
+            </a>
+            <a href="https://www.facebook.com/wpdeveloperrakibhussain" rel="noopener noreferrer" target="_blank" class="group flex items-center gap-3 text-zinc-400 hover:text-white transition-colors">
+              <span class="w-9 h-9 flex items-center justify-center bg-zinc-800 rounded-lg group-hover:bg-accent/20 transition-colors shrink-0">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+              </span>
+              <span class="text-sm">facebook.com/wpdeveloperrakibhussain</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ফর্ম সেকশন -->
+        <div class="reveal d2">
+          <form id="contactForm">
+            <div class="flex flex-col gap-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name *</label>
+                  <input type="text" id="fname" placeholder="Your Name" required class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-accent">
+                </div>
+                <div>
+                  <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email *</label>
+                  <input type="email" id="femail" placeholder="Your Email" required class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-accent">
+                </div>
+              </div>
+              <div>
+                <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
+                <input type="text" id="fsubject" placeholder="Project inquiry" class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-accent">
+              </div>
+              <div>
+                <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message *</label>
+                <textarea id="fmessage" rows="4" placeholder="Tell me about your project..." required class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-accent resize-none"></textarea>
+              </div>
+              <button type="button" onclick="sendToWhatsApp()" class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-all">
+                Send message to WhatsApp →
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function sendToWhatsApp() {
+  const name = document.getElementById('fname').value;
+  const email = document.getElementById('femail').value;
+  const subject = document.getElementById('fsubject').value;
+  const message = document.getElementById('fmessage').value;
+
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill in the required fields (Name, Email, and Message).");
+    return;
+  }
+
+  const phone = "8801616355160";
+  const text = `*Hello Mr. Rakib Hussain,*%0A%0A` +
+               `I want to talk to you for my project.%0A%0A` +
+               `👤 *Name:* ${name}%0A` +
+               `📧 *Email:* ${email}%0A` +
+               `📌 *Subject:* ${subject}%0A` +
+               `💬 *Message:* ${message}`;
+
+  const url = `https://wa.me/${phone}?text=${text}`;
+  window.open(url, '_blank');
+}
+</script>
+
+</main>
+
+<footer class="border-t border-zinc-100 dark:border-zinc-900">
+  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-zinc-400">
+      © <span id="yr"></span> Rakib. All rights reserved. <br> 
+      Crafted with passion by <a href="https://wa.me/8801616355160" target="_blank" class="font-bold hover:text-accent transition-colors">Rakib</a>
+    </p>
+    <p class="text-xs text-zinc-500">
+      Need a project? 
+      <a href="https://themedokan.com" rel="noopener noreferrer" target="_blank" class="font-bold hover:text-accent transition-colors underline">Readymade website buy now</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+function app() {
+  return {
+    dark: false,
+    mm: false,
+    sc: false,
+    s: 'hero',
+
+    init() {
+      // dark mode
+      this.dark = localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      this.$watch('dark', v => localStorage.setItem('theme', v ? 'dark' : 'light'));
+
+      // scroll
+      window.addEventListener('scroll', () => {
+        this.sc = window.scrollY > 20;
+        this.updateSection();
+      }, { passive: true });
+
+      // reveal
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // year
+      document.getElementById('yr').textContent = new Date().getFullYear();
+    },
+
+    updateSection() {
+      const atBottom = (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 60;
+      if (atBottom) { this.s = 'contact'; return; }
+      const ids = ['contact','blog','reviews','about','work','services','hero'];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 130) { this.s = id; return; }
+      }
+    }
+  }
+}
+</script>
+<script>
+  // রাইট ক্লিক ডিজেবল
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // ডেভেলপার টুলস (F12, Ctrl+Shift+I, Ctrl+U) ডিজেবল
+  document.onkeydown = function(e) {
+    if (e.keyCode == 123 || 
+        (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) ||
+        (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) ||
+        (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+      return false;
+    }
+  }
+</script>
+</body>
+</html>
