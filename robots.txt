@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rakibhussain.com/sitemap.xml
+Sitemap: https://rakibdeveloper.pro.bd//sitemap.xml
